@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { OrcamentoModule } from './orcamento/orcamento.module';
 import { MaterialModule } from './material/material.module';
 import { OrcamentoMaterialModule } from './orcamento-material/orcamento-material.module';
+import { GatewayModule } from './gateway/gateway.module';
 
 @Module({
   imports: [
@@ -26,12 +27,10 @@ import { OrcamentoMaterialModule } from './orcamento-material/orcamento-material
         synchronize: true,
       }),
     }),
-
     OrcamentoModule,
-
     MaterialModule,
-
     OrcamentoMaterialModule,
+    GatewayModule,
   ],
   controllers: [AppController],
   providers: [AppService],

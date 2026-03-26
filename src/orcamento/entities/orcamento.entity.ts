@@ -24,18 +24,18 @@ export class Orcamento {
   @Column()
   inscricao: string;
 
-  @Column()
+  @Column({ type: 'timestamp' })
   data: Date;
 
   @Column()
   status: string;
 
-  @OneToMany(
-    () => OrcamentoMaterial,
-    (orcamentoMaterial) => orcamentoMaterial.orcamento,
-    {
-      cascade: true,
-    },
-  )
+  @Column({ nullable: true })
+  motivoRecusa: string;
+
+  @Column()
+  usuarioId: number;
+
+  @OneToMany(() => OrcamentoMaterial, (om) => om.orcamento, { cascade: true })
   materiais: OrcamentoMaterial[];
 }

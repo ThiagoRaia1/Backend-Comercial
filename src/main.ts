@@ -12,6 +12,10 @@ async function bootstrap() {
       stopAtFirstError: true, // retorna apenas o primeiro erro que ocorrer
     }),
   );
-  await app.listen(3003, '0.0.0.0');
+
+  const PORT = 3003;
+  await app.listen(PORT, '0.0.0.0');
+  const url = await app.getUrl();
+  console.log(`Comercial rodando em: ${url}`);
 }
 bootstrap();

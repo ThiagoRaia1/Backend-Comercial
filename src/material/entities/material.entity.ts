@@ -9,9 +9,9 @@ export class Material {
   @Column()
   nome: string;
 
-  @Column()
+  @Column('decimal', { precision: 10, scale: 2 })
   preco: number;
 
-  @OneToMany(() => OrcamentoMaterial, (orcamentoMaterial) => orcamentoMaterial.material)
+  @OneToMany(() => OrcamentoMaterial, (om) => om.material)
   orcamentos: OrcamentoMaterial[];
 }
